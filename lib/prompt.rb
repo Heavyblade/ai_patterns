@@ -1,7 +1,3 @@
-# Prompt class
-# is used to store prompts as json files and is able to store
-# and retrieve them from the file system based on the name of the prompt
-
 class Prompt
   attr_accessor :name, :content, :parameters, :metadata
 
@@ -21,11 +17,16 @@ class Prompt
   end
 
   def save
-    path = File.join('lib', 'prompts', "#{name}.json")
     File.write(path, JSON.pretty_generate({
                                             content: content,
                                             parameters: parameters,
                                             metadata: metadata
                                           }))
+  end
+
+  private
+
+  def path
+    File.join('lib', 'prompts', "#{name}.json")
   end
 end
