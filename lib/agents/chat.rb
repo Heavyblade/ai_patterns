@@ -2,7 +2,7 @@ module Agents
   class Chat
     attr_reader :tag
 
-    Langchain.logger.level = Logger::DEBUG
+    Langchain.logger.level = Logger::WARN
 
     def initialize(tag)
       @tag = tag
@@ -10,7 +10,7 @@ module Agents
         api_key: ENV['OPENAI_API_KEY'],
         default_options: { temperature: 0.7, chat_model: 'gpt-4o' }
       )
-      set_adapter!('gpt_4o')
+      set_adapter!('gpt-4o')
     end
 
     def chat(messages:)
