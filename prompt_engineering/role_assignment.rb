@@ -13,7 +13,7 @@ messages = [
   { role: 'user', content: 'what new hobby should I try today?, response in just one line.' }
 ]
 
-agent = Agents::Chat.new(:role_player)
+agent = Agents::Chater.new(:role_player)
 
 puts "Narrator: #{agent.chat(messages: messages)}"
 messages[0][:content] = librarian

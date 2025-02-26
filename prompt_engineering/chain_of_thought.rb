@@ -35,4 +35,4 @@ messages = [
   { role: 'user', content: prompt }
 ]
 
-puts Agents::Chat.new(:role_player).chat(messages: messages)
+puts Agents::Chater.new(:role_player).chat(messages: messages)

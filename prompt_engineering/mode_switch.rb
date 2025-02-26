@@ -26,4 +26,4 @@ messages = [
 
 messages << { user: 'and notify me via xxxx function if date is available' } if ENV['NOTIFY']
 
-Agents::Chat.new(:schedule_manager).chat(messages: messages)
+Agents::Chater.new(:schedule_manager).chat(messages: messages)

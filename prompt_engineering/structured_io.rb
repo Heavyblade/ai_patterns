@@ -39,5 +39,5 @@ messages = [
   { role: 'user', content: prompt }
 ]
 
-agent = Agents::Chat.new(:role_player)
+agent = Agents::Chater.new(:role_player)
 puts agent.chat(messages: messages)
