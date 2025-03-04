@@ -1,14 +1,15 @@
 module Agents
   module Abilities
     module Chat
-      Langchain.logger.level = Logger::WARN
+      # Langchain.logger.level = Logger::WARN
+      Langchain.logger.level = Logger::DEBUG
 
       def llm
         @llm ||= set_adapter!('gpt-4o')
       end
 
-      def chat(messages:)
-        llm.chat(messages: messages).chat_completion
+      def chat(messages:, tools: [])
+        llm.chat(messages: messages, tools: tools).chat_completion
       end
 
       private
