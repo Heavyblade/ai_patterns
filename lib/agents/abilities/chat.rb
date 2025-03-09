@@ -1,8 +1,8 @@
 module Agents
   module Abilities
     module Chat
-      # Langchain.logger.level = Logger::WARN
-      Langchain.logger.level = Logger::DEBUG
+      Langchain.logger.level = Logger::WARN
+      # Langchain.logger.level = Logger::DEBUG
 
       def llm
         @llm ||= set_adapter!('gpt-4o')
