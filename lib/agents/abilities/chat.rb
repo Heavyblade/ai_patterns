@@ -8,8 +8,8 @@ module Agents
         @llm ||= set_adapter!('gpt-4o')
       end
 
-      def chat(messages:, tools: [])
-        llm.chat(messages: messages, tools: tools).chat_completion
+      def chat(**kwargs)
+        llm.chat(**kwargs).chat_completion
       end
 
       private
