@@ -13,7 +13,7 @@ class PromptTemplate
   end
 
   def evaluate(context)
-    ERB.new(content).run(context.get_binding)
+    ERB.new(content).result_with_hash(context)
   end
 
   def self.load(name)

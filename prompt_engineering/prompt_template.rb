@@ -9,14 +9,10 @@ require_relative '../ai_patterns'
 template = PromptTemplate.new('greeter', 'Hello, <%= name %>')
 template.save
 
-Customer = Struct.new(:name) do
-  def get_binding
-    binding
-  end
-end
-
-prompt = PromptTemplate.load('greeter').evaluate(Customer.new('John'))
+prompt = PromptTemplate.load('greeter').evaluate(name: 'John')
 
 # Use an evaluated prompt template to create a new prompt.
-Prompt.new('hobby', prompt)
+prompt = Prompt.new('hobby', prompt)
+
+puts prompt.content
 
