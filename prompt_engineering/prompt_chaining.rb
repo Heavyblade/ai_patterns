@@ -38,7 +38,7 @@ instructions = <<~INSTRUCTIONS
   #{questions.map { |question| "* [#{question[:tag]}] - #{question[:question]}\n" }}
 
   When you get a response from the user, you will move to the next
-  question and will call the save_answer function.
+  question, will call the save_answer function.
 INSTRUCTIONS
 
 messages = [
