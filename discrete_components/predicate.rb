@@ -14,17 +14,18 @@ require_relative '../ai_patterns'
 # Here the temperature value is important, so the desicion is more deterministic.
 
 system_query = <<~PROMPT
-  does the user provide enough information that allows you to provide
-  an accourate movie recommendationl.
+  Does the user provide enough information to allow you to make
+  an accurate movie recommendation?
 
-  I need you to provide "Yes" or "No" as an answer.
+  Please provide "Yes" or "No" as an answer.
 PROMPT
 
 user_context = <<~PROMPT
-  I enjoy watching a variety of movies, but my favorites are those with
-  complex characters and intricate plots. I particularly love psychological
-  thrillers and dramas that keep me on the edge of my seat. Additionally, I have
-  a soft spot for classic films and enjoy the occasional light-hearted comedy.
+  I enjoy watching a variety of movies, but my favorites are those
+  with complex characters and intricate plots. I particularly love
+  psychological thrillers and dramas that keep me on the edge of my seat.
+  Additionally, I have a soft spot for classic films and enjoy the
+  occasional light-hearted comedy.
 
   #{system_query}
 PROMPT
@@ -34,4 +35,13 @@ messages = [
   { role: 'user', content: user_context }
 ]
 
-puts Agents::Chater.new(:role_player).chat(messages: messages, temperature: 0.0)
+agent = Agents::Chater.new(:role_player)
+evaluation = agent.chat(messages: messages, temperature: 0.0)
+
+if evaluation.match(/yes/i)
+  messages << {  role: 'user', content: 'Ok, proceed to give 5 movie recommendations to watch.' }
+  recommendation = agent.chat(messages: messages, temperature: 0.0)
+  puts recommendation
+else
+  # add a converstion loop asking user for more info
+end
