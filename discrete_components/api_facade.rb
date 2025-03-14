@@ -17,6 +17,8 @@ class PaymentTool
   def make_payment(value:)
     gateway = value.to_i > 100 ? :braintree : :stripe
     Payment.new.pay(value.to_i, '1234 5678 9012 3456', type: gateway)
+
+    tool_response(content: "Payment of $#{value} was successful.")
   end
 end
 
