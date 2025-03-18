@@ -1,12 +1,10 @@
-## Description
+# Description
 
-This repo contains examples of the patterns described in the [Patterns of Application Development Using AI](https://leanpub.com/patterns-of-application-development-using-ai)
+This repo contains examples of the patterns described in the senction of II [Patterns of Application Development Using AI](https://leanpub.com/patterns-of-application-development-using-ai) book.
 
-In the same way here is an small summary of the book aspects:
+## Pattern implementation examples:
 
-## Example patterns
-
-### Prompt Engineering
+## 1. Prompt Engineering
 
 - [Chain of Thought](prompt_engineering/chain_of_thought.rb)
 - [Mode Switch](prompt_engineering/mode_switch.rb)
@@ -21,18 +19,18 @@ In the same way here is an small summary of the book aspects:
 - [Structured IO](prompt_engineering/structured_io.rb)
 - [Ventriloquist](prompt_engineering/ventriloquist.rb)
 
-### Discrete Components
+## 2. Discrete Components
 - [Predicate](discrete_components/predicate.rb)
 - [API Facade](discrete_components/api_facade.rb)
 - [Response Interpreter](discrete_components/response_interpreter.rb)
 - [Virtual Machine](discrete_components/virtual_machine.rb)
 
 
-### Human in the Loop
+## 3. Human in the Loop
 
 HITL are wider patterns and more descriptive than code related, here is a summary:
 
-#### Escalation
+### Escalation
 
 As it's name implies, this pattern is used when you want to escalate task
 or converstion to a human in the loop.
@@ -45,7 +43,7 @@ To implement you will need to:
 * Human Review and decision.
 * Feeback and Model improvements => use the feedback to improve the model.
 
-#### Feedback Loop
+### Feedback Loop
 
 The feedback loop pattern is best described as a conversation between the LLM and the user.
 It could take the form of chat, a survey, or a conversation between a writer and an editor.
@@ -58,7 +56,7 @@ Areas where this pattern can be used:
 * Summarization
 * Question answering conversations, like chatbots or teaching assistants.
 
-#### Passive Information Radiation
+### Passive Information Radiation
 
 This pattern describes an AI system where the AI provides information-feedback to the user
 without the user having to ask for it. This pattern is useful when the AI has information
@@ -70,7 +68,7 @@ Examples:
 * Monitoring system that alerts the user to potential issues.
 * AI that monitors financial transactions assesing risk and sending alerts.
 
-#### Continuos Learning
+### Continuos Learning
 
 Basically uses user feedback to improve the model, this is :ok button that you see
 in some chat applications when they give you a response.
@@ -89,7 +87,7 @@ Where this pattern can be used:
 
 Note: One posibility is to store the feedback in a RAG system and use it to improve promtps.
 
-## Considerations
+# Considerations
 
 * Maybe a generalization to parse responses is needed
 
